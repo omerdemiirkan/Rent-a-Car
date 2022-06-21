@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +31,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CanExitGuard } from './guards/can-exit.guard';
 import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,6 @@ import { CartDetailComponent } from './components/cart-detail/cart-detail.compon
     LoginComponent,
     RegisterComponent,
     CartDetailComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -65,11 +65,14 @@ import { CartDetailComponent } from './components/cart-detail/cart-detail.compon
     FormsModule,
     AccordionModule,
     TabMenuModule,
-    DropdownModule
-    
-    
+    DropdownModule,
   ],
-  providers: [MessageService, CanExitGuard],
-  bootstrap: [AppComponent]
+  providers: [
+    MessageService,
+    CanExitGuard,
+
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
