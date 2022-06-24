@@ -1,0 +1,119 @@
+<div class="card">
+  <div class="card-body inner-card">
+    <div class="col">
+      <h4 style="text-align: center; color: #1282a2">
+        <b>Information Details</b>
+      </h4>
+    </div>
+    <br /><br />
+    <form [formGroup]="addressAddForm" (ngSubmit)="add()">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6 col-sm-12">
+          <div class="form-group">
+            <label for="userFirstName">First Name</label
+            ><input
+              type="text"
+              class="form-control"
+              id="user-first-name"
+              formControlName="userFirstName"
+              placeholder="Your name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Mobile Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Mobile-Number"
+              formControlName="phone"
+              placeholder="(5xx) xxx xx xx"
+            />
+          </div>
+          <div class="form-group">
+            <label for="country">Country</label
+            ><input placeholder="Turkey" formControlName="country" />
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-12">
+          <div class="form-group">
+            <label for="userLastName">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="user-last-name"
+              formControlName="userLastName"
+              placeholder="Your last name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              placeholder="example@gmail.com"
+            />
+          </div>
+          <div class="form-group">
+            <label for="cityId">City</label>
+            <select
+              class="form-control"
+              required
+              name="cityId"
+              id="cityId"
+              formControlName="cityId"
+              aria-describedby="cityId-help"
+            >
+              <option *ngFor="let city of cities" [value]="city.id">
+                {{ city.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-10 col-12">
+            <div class="form-group">
+              <label for="contactAddress">Contact Address</label>
+              <textarea
+                class="form-control rounded-0"
+                id="contactAddress"
+                formControlName="address1"
+                style="height: 100px; width: 670px"
+                rows="5"
+              ></textarea>
+            </div>
+            <br />
+          </div>
+          <div class="col-md-12 col-lg-10 col-12">
+            <div class="form-group">
+              <label for="billingAddress">Billing Address</label>
+              <textarea
+                class="form-control rounded-0"
+                id="billingAddress"
+                formControlName="address2"
+                style="height: 100px; width: 670px"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="row justify-content-end">
+            <div class="col-lg-4 col-auto">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                style="font-size: 15px"
+              >
+                CHECKOUT
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<br /><br />
