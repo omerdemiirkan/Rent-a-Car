@@ -32,6 +32,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { CanExitGuard } from './guards/can-exit.guard';
 import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     LoginComponent,
     RegisterComponent,
     CartDetailComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
